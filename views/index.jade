@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  script(src='/javascripts/jquery-1.10.2.min.js')
+  script(src='/javascripts/bootstrap.min.js')
+  script(src='/javascripts/underscore.min.js')
+  script(src='/javascripts/hipchat.js')
+
+  .container
+    h3 Hipchat Emoticons
+    #hipchat_emoticons
+    h3 Work Market Emoticons
+    #wm_emoticons
+
+  script#emoticon_template(type='text/template')
+    |<%
+    |  var count = 0;
+    |  _.each(emoticons, function(emoticon) {
+    |    if (count++ === 0) {
+    |%>
+    |      <div class='row'>
+    |<%
+    |    }
+    |%>
+    |      <div class='col-md-2'>
+    |        <img class="clickable" data-shortcut="(<%= emoticon.shortcut %>)" src="<%= emoticon.url %>"><br>
+    |        (<%= emoticon.shortcut %>)
+    |      </div>
+    |<%
+    |    if (count === 6) {
+    |      count = 0;
+    |%>
+    |      </div>
+    |<%
+    |    }
+    |  });
+    |%>
