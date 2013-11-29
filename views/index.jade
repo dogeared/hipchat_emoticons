@@ -10,28 +10,21 @@ block content
     h3 Hipchat Emoticons
     #hipchat_emoticons
     h3 Work Market Emoticons
-    #wm_emoticons
+    #custom_emoticons
 
   script#emoticon_template(type='text/template')
-    |<%
-    |  var count = 0;
-    |  _.each(emoticons, function(emoticon) {
-    |    if (count++ === 0) {
-    |%>
-    |      <div class='row'>
-    |<%
-    |    }
-    |%>
     |      <div class='col-md-2'>
     |        <img class="clickable" data-shortcut="(<%= emoticon.shortcut %>)" src="<%= emoticon.url %>"><br>
     |        (<%= emoticon.shortcut %>)
     |      </div>
+
+  script#emoticon_row_template(type='text/template')
     |<%
-    |    if (count === 6) {
-    |      count = 0;
+    |  _.each(rows, function(row) {
     |%>
-    |      </div>
+    |    <div class='row'>
+    |    <%= row %>
+    |    </div>
     |<%
-    |    }
     |  });
     |%>

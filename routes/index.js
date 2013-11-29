@@ -30,7 +30,7 @@ var sortByShortcut = function(emoticons) {
 var doSort = function(emoticons) {
   return {
     hipchat: sortByShortcut(emoticons.hipchat),
-    wm: sortByShortcut(emoticons.wm)
+    custom: sortByShortcut(emoticons.custom)
   };
 }
 
@@ -39,7 +39,7 @@ exports.emoticons = function(req, res) {
     hipchat: function(callback) {
       getEmoticons(baseURL + '?type=global', [], callback);
     },
-    wm: function(callback) {
+    custom: function(callback) {
       getEmoticons(baseURL + '?type=group', [], callback);
     } 
   }, function(err, results) {
