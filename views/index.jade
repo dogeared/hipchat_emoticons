@@ -13,18 +13,18 @@ block content
     #custom_emoticons
 
   script#emoticon_template(type='text/template')
-    |      <div class='col-md-2'>
-    |        <img class="clickable" data-shortcut="(<%= emoticon.shortcut %>)" src="<%= emoticon.url %>"><br>
-    |        (<%= emoticon.shortcut %>)
-    |      </div>
+    |<div class='col-md-2'>
+    |  <img class="clickable" 
+    |    data-shortcut="(<%= emoticon.shortcut %>)" src="<%= emoticon.url %>">
+    |  <br>
+    |  (<%= emoticon.shortcut %>)
+    |</div>
 
   script#emoticon_row_template(type='text/template')
     |<%
     |  _.each(rows, function(row) {
     |%>
-    |    <div class='row'>
-    |    <%= row %>
-    |    </div>
+    |    <div class='row'><%= row %></div>
     |<%
     |  });
     |%>
