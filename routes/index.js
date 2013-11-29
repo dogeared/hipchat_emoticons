@@ -10,8 +10,10 @@ var token = process.env.TOKEN;
 var baseURL = 'https://api.hipchat.com/v2/emoticon';
 
 var getEmoticons = function(url, emoticons, callback) {
-  request(url + '&auth_token=' + token, function(error, response, body) {
-    var data = JSON.parse(body);
+  request({
+    url: url + '&auth_token=' + token,
+    json: true
+  }, function(error, response, data) {
     emoticons = emoticons.concat(data.items);
     if (data.items.length == 100) {
       getEmoticons(data.links.next, emoticons, callback);
