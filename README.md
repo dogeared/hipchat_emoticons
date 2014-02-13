@@ -16,3 +16,7 @@ If you want to deploy to heroku, you can execute this command after the initial 
 ```
 heroku config:set TOKEN=<your token>
 ```
+
+The webpage will show you all hipchat emoticons as well as your own emoticons:
+
+![screenshot](screenshot.png)
