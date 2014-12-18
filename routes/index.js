@@ -15,7 +15,7 @@ var getEmoticons = function(url, emoticons, callback) {
     json: true
   }, function(error, response, data) {
     emoticons = emoticons.concat(data.items);
-    if (data.items.length == 100) {
+    if (data.items.length == 100 && data.links.next) {
       getEmoticons(data.links.next, emoticons, callback);
     } else {
       callback(null, emoticons);
